@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "name": "spotify-workers",
+  "version": "1.0.0",
+  "description": "A template for kick starting a Cloudflare Workers project",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'",
+    "build": "webpack"
+  },
+  "author": "Behn <7383025+BehnH@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.7",
+    "babel-loader": "^8.2.4",
+    "prettier": "^1.18.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "itty-router": "^2.6.0",
+    "serverless-cloudflare-workers": "^1.2.0"
+  }
+}
