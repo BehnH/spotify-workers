@@ -1,4 +1,4 @@
-import { getTopTracks } from "../../utils/spotify.js";
+import { getTopTracks } from '../../utils/spotify.js';
 
 export const TopTracks = async () => {
     // Fetch the most recent songs
@@ -6,13 +6,11 @@ export const TopTracks = async () => {
     // Parse the response to JSON
     const { items } = await req.json();
 
-    console.log(items[0]);
-
     // Build the response
-    const tracks = items.slice(0, 10).map(track => ({
+    const tracks = items.slice(0, 10).map((track) => ({
         artist: track?.artists.map((_artist) => _artist.name).join(', '),
         songUrl: track?.external_urls?.spotify,
-        title: track?.name
+        title: track?.name,
     }));
 
     // Define the response headers
@@ -25,9 +23,10 @@ export const TopTracks = async () => {
     };
 
     // Return the response
+    // eslint-disable-next-line no-undef
     return new Response(JSON.stringify(tracks), {
         headers,
     });
- };
+};
 
 export default TopTracks;

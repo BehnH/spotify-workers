@@ -1,4 +1,4 @@
-import { getNowPlaying } from "../../utils/spotify.js";
+import { getNowPlaying } from '../../utils/spotify.js';
 
 const NowPlaying = async () => {
     // Fetch the current playing song
@@ -12,8 +12,8 @@ const NowPlaying = async () => {
         songUrl: res.item.external_urls.spotify,
         title: res.item.name,
         album_artwork: res.item.album.images[0].url,
-        playing: res.is_playing
-    }
+        playing: res.is_playing,
+    };
 
     // Define the response headers
     const headers = {
@@ -25,6 +25,7 @@ const NowPlaying = async () => {
     };
 
     // Return the response
+    // eslint-disable-next-line no-undef
     return new Response(JSON.stringify(track), {
         headers,
     });

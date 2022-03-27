@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-undef */
 const clientId = SPOTIFY_CLIENT_ID;
 const clientSecret = SPOTIFY_CLIENT_SECRET;
 const refreshToken = SPOTIFY_REFRESH_TOKEN;
@@ -18,7 +20,7 @@ const getAccessToken = async () => {
         body: new URLSearchParams({
             grant_type: 'refresh_token',
             refresh_token: refreshToken,
-        })
+        }),
     });
 
     return response.json();
@@ -30,7 +32,7 @@ export const getNowPlaying = async () => {
     return fetch(nowPlayingEndpoint, {
         headers: {
             Authorization: `Bearer ${access_token}`,
-        }
+        },
     });
 };
 
@@ -40,7 +42,7 @@ export const getTopTracks = async () => {
     return fetch(topTracksEndpoint, {
         headers: {
             Authorization: `Bearer ${access_token}`,
-        }
+        },
     });
 };
 
@@ -50,6 +52,6 @@ export const getRecentTracks = async () => {
     return fetch(recentTracksEndpoint, {
         headers: {
             Authorization: `Bearer ${access_token}`,
-        }
+        },
     });
 };

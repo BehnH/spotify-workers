@@ -1,4 +1,4 @@
-import { getRecentTracks } from "../../utils/spotify.js";
+import { getRecentTracks } from '../../utils/spotify.js';
 
 const RecentTracks = async () => {
     // Fetch the most recent songs
@@ -7,10 +7,10 @@ const RecentTracks = async () => {
     const { items } = await req.json();
 
     // Build the response
-    const tracks = items.slice(0, 10).map(track => ({
+    const tracks = items.slice(0, 10).map((track) => ({
         artist: track.track.artists.map((_artist) => _artist.name).join(', '),
         songUrl: track.track.external_urls.spotify,
-        title: track.track.name
+        title: track.track.name,
     }));
 
     // Define the response headers
@@ -23,6 +23,7 @@ const RecentTracks = async () => {
     };
 
     // Return the response
+    // eslint-disable-next-line no-undef
     return new Response(JSON.stringify(tracks), {
         headers,
     });
