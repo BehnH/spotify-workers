@@ -1,0 +1,44 @@
+name: reviewdog
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  reviewdog-github-check:
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+    name: reviewdog (github-check)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run reviewdog
+        uses: reviewdog/action-eslint@v1
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          reporter: github-check # Change reporter.
+          eslint_flags: 'src/'
+  reviewdog-pr:
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+    if: github.event_name == 'pull_request'
+    name: reviewdog on Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run reviewdog
+        uses: reviewdog/action-eslint@v1
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          reporter: github-pr-review # Change reporter.
+          eslint_flags: 'src/'
