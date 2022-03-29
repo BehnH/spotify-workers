@@ -23,7 +23,7 @@
     "webpack-cli": "4.9.2"
   },
   "dependencies": {
-    "itty-router": "2.6.0",
+    "itty-router": "2.6.1",
     "serverless-cloudflare-workers": "1.2.0"
   }
 }
