@@ -12,8 +12,8 @@
   "author": "Behn <7383025+BehnH@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.17.10",
-    "@babel/plugin-proposal-optional-chaining": "7.16.7",
+    "@babel/core": "7.18.5",
+    "@babel/plugin-proposal-optional-chaining": "7.17.12",
     "babel-loader": "8.2.5",
     "eslint": "8.16.0",
     "eslint-config-airbnb-base": "15.0.0",
