@@ -4,11 +4,9 @@ const NowPlaying = async () => {
     // Fetch the current playing song
     const req = await getNowPlaying();
 
-    // eslint-disable-next-line no-undef
-    if (!req.body?.length) return new Response(null, { status: 404 });
-
     // Parse the response to JSON
-    const res = await req.json();
+    // eslint-disable-next-line no-undef
+    const res = await req.json().catch((err) => new Response(err, { status: 404 }));
 
     // Build the response
     const track = {
