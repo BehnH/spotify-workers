@@ -3,6 +3,10 @@ import { getNowPlaying } from '../../utils/spotify.js';
 const NowPlaying = async () => {
     // Fetch the current playing song
     const req = await getNowPlaying();
+
+    // eslint-disable-next-line no-undef
+    if (!req.body?.length) return new Response(null, { status: 404 });
+
     // Parse the response to JSON
     const res = await req.json();
 
